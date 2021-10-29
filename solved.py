@@ -1,12 +1,4 @@
 import requests
-from unittest import TestCase
-
-
-class MyTest(TestCase):
-    def test_urlSettings(self):
-        request = requests.get(UrlSettings("310o").userSolvedUrl)
-        self.assertEqual(request.status_code, 200)
-
 
 class UrlSettings(object):
     def __init__(self, userName):
@@ -20,13 +12,12 @@ class UrlSettings(object):
 
 
 def getSolved():
-    problems = {}
+    problems = ""
     url = UrlSettings("310o").userSolvedUrl
     data = requests.get(url).json()
 
     for problem in data["items"]:
         id = problem["problemId"]
         title = problem["titleKo"]
-        problems[id]=title
+        problems+=f"{id} {title}\n"
     return problems
-print(getSolved())
