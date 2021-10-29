@@ -1,29 +1,15 @@
-import requests
-from unittest import TestCase
+# 오늘까지 푼 문제와 어제까지 푼 문제를 비교
+# 비교 후 같으면 트윗 X, 다르면 트윗
+#
 
+def updateProblems():
+    pass
 
-class MyTest(TestCase):
-    def test_urlSettings(self):
-        request = requests.get(UrlSettings("310o").userSolvedUrl)
-        self.assertEqual(request.status_code, 200)
+def checkProblems():
+    pass
 
+def main():
+    pass
 
-class UrlSettings(object):
-    def __init__(self, userName):
-        self.api_server = "https://solved.ac/api"
-        self.userName = userName
-        self.userSolvedUrl = (
-            self.api_server + "/v3/search/problem?query=solved_by:" + self.userName
-        )
-
-
-dic = {}
-url = UrlSettings("310o").userSolvedUrl
-data = requests.get(url).json()
-
-
-for j in data["items"]:
-    dic[j["problemId"]] = j["titleKo"]
-
-for i in dic.items():
-    print(i)
+if __name__=="__main__":
+    main()
