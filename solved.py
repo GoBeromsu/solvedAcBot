@@ -12,12 +12,12 @@ class UrlSettings(object):
 
 
 def getSolved():
-    problems = ""
+    problems = []
     url = UrlSettings("310o").userSolvedUrl
     data = requests.get(url).json()
 
     for problem in data["items"]:
         id = problem["problemId"]
         title = problem["titleKo"]
-        problems+=f"{id} {title}\n"
+        problems.append([id,title])
     return problems
