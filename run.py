@@ -30,8 +30,22 @@ def changeProblemsToStr(problems:list):
 def updateProblems(nowSolved):
     issue.updateIssue(config.GITHUB_REPO_URL,1,changeProblemsToStr(nowSolved))
 def checkProblemsChanged(beforeSolved:list,nowSolved:list):
-    return True if len(beforeSolved) != len(nowSolved) else False 
-
+    return True if len(beforeSolved) != len(nowSolved) else False
+def formatTweet(solvedToday:list):
+    tweet = 'Today I Solved \n'
+    tweet += formatProblems(solvedToday)
+    tweet+='#solvdac \n'
+    tweet+=f'solved.ac/profile/{config.GITHUB_ID}'
+    return tweet
+def formatProblems(solvedToday:list):
+    tweet=''
+    count=1
+    for problem in solvedToday:
+        tweet+= f"「 {problem[0]} {problem[1]} 」\n"
+        if count ==4:
+            tweet+= f"「{problem[0]} {problem[1]}」..+{len(solvedToday)-count}\n"
+        count+=1
+    return tweet
 
 def main():
 
@@ -40,12 +54,11 @@ def main():
 
     if checkProblemsChanged(beforeSolved, nowSolved):
         solvedToday = getSolvedToday(beforeSolved, nowSolved)
-        updateProblems(nowSolved)
-        print(solvedToday)
+        # updateProblems(nowSolved)
+        print(formatTweet(solvedToday))
     else:
         print("오늘 안 풀었구먼")
 
-
-
 if __name__=="__main__":
     main()
+
