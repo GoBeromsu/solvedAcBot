@@ -1,0 +1,12 @@
+import config
+import twitter
+
+api = twitter.Api(
+    consumer_key=config.TWITTER_API_KEY,
+    consumer_secret=config.TWITTER_API_SECRET,
+    access_token_key=config.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret=config.TWITTER_ACCESS_TOKEN_SECRET,
+)
+
+def post(message):
+    api.PostUpdate(status=message)
