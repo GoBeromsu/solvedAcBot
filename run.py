@@ -1,5 +1,5 @@
 import issue
-
+import tweet
 import config
 import solved
 
@@ -41,9 +41,10 @@ def formatProblems(solvedToday:list):
     tweet=''
     count=1
     for problem in solvedToday:
-        tweet+= f"「 {problem[0]} {problem[1]} 」\n"
         if count ==4:
-            tweet+= f"「{problem[0]} {problem[1]}」..+{len(solvedToday)-count}\n"
+            tweet+= f"「{problem[0]} {problem[1]}」...\n"
+            break
+        tweet+= f"「 {problem[0]} {problem[1]} 」\n"
         count+=1
     return tweet
 
@@ -54,8 +55,9 @@ def main():
 
     if checkProblemsChanged(beforeSolved, nowSolved):
         solvedToday = getSolvedToday(beforeSolved, nowSolved)
-        # updateProblems(nowSolved)
-        print(formatTweet(solvedToday))
+        updateProblems(nowSolved)
+        body = formatTweet(solvedToday)
+        tweet.post(body)
     else:
         print("오늘 안 풀었구먼")
 
