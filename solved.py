@@ -21,5 +21,3 @@ class ProblemSettings(object):
             else:
                 page+=1
         return problems
-
-print(type(ProblemSettings().getSolved()))

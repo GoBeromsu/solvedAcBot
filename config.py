@@ -1,6 +1,6 @@
 import os
 import environ
-TWITTER_API_KEY = os.environ.get("TWITTER_API_KEY") or ""
+TWITTER_API_KEY = os.environ.get("TWITTER_API KEY") or ""
 TWITTER_API_SECRET = os.environ.get("TWITTER_API_SECRET") or ""
 TWITTER_ACCESS_TOKEN_KEY = os.environ.get("TWITTER_ACCESS_TOKEN_KEY") or ""
 TWITTER_ACCESS_TOKEN_SECRET = os.environ.get("TWITTER_ACCESS_TOKEN_SECRET") or ""
