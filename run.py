@@ -2,7 +2,7 @@ import issue
 import tweet
 import config
 import solved
-
+import github
 def getSolvedToday(bSolved,nSolved):
     stack = []
     for problem in nSolved:
@@ -10,7 +10,6 @@ def getSolvedToday(bSolved,nSolved):
             stack.append(problem)
     return stack
 def changeProblemsToList(body:str):
-    
     problems = []
     for problem in body.split('\n'):
         if problem != '':                
@@ -49,10 +48,13 @@ def formatProblems(solvedToday:list):
     return tweet
 
 def main():
-
-    beforeSolved = changeProblemsToList(issue.getIssue(config.GITHUB_REPO_URL, 1))
     nowSolved = solved.ProblemSettings().getSolved()
-
+    try: 
+        beforeSolved = changeProblemsToList(issue.getIssue(config.GITHUB_REPO_URL, 1))
+    except github.GithubException:
+        print("Github Exception Error occured")
+        issue.createIssue(config.GITHUB_REPO_URL, changeProblemsToStr(nowSolved))
+        print("Create init Issue")
     if checkProblemsChanged(beforeSolved, nowSolved):
         solvedToday = getSolvedToday(beforeSolved, nowSolved)
         updateProblems(nowSolved)
