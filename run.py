@@ -62,6 +62,7 @@ def main():
         tweet.post(body)
     else:
         print("오늘 안 풀었구먼")
+        print("Is it working?")
 
 if __name__=="__main__":
     main()
