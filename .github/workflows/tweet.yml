@@ -1,9 +1,10 @@
 name: Post tweet
 
 on:
-  schedule:
-  - cron: "59 14 * * *"
-
+  # schedule:
+  # - cron: "59 14 * * *"
+  push:
+    branches: [ master ]
 jobs:
   run:
     runs-on: ubuntu-latest
