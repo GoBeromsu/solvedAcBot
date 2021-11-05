@@ -3,6 +3,7 @@ import tweet
 import config
 import solved
 import github
+
 def getSolvedToday(bSolved,nSolved):
     stack = []
     for problem in nSolved:
@@ -48,8 +49,8 @@ def formatProblems(solvedToday:list):
     return tweet
 
 def main():
-    nowSolved = solved.ProblemSettings().getSolved()
     try: 
+        nowSolved = solved.ProblemSettings().getSolved()
         beforeSolved = changeProblemsToList(issue.getIssue(config.GITHUB_REPO_URL, 1))
     except github.GithubException:
         print("Github Exception Error occured")
@@ -62,7 +63,6 @@ def main():
         tweet.post(body)
     else:
         print("오늘 안 풀었구먼")
-        print("Is it working?")
 
 if __name__=="__main__":
     main()
