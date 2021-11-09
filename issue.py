@@ -3,7 +3,7 @@ import config
 import solved
 
 g = Github(config.GITHUB_ACCESS_KEY)
-
+print(g)
 def getIssue(repo_url,issue_num):
     issue = g.get_repo(repo_url).get_issue(number=issue_num)
     return issue.body
