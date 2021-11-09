@@ -1,8 +1,7 @@
-name: Post tweet
-
+name: Test Issue
 on:
-  schedule:
-  - cron: "59 14 * * *"
+  push:
+    branches: [ master ]
 jobs:
   run:
     runs-on: ubuntu-latest
