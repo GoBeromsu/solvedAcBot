@@ -22,7 +22,7 @@ jobs:
         GIT_ACCESS_KEY: ${{ secrets.GIT_ACCESS_KEY }}
         TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
         TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-        TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_API_KEY }}
-        TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+        TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+        TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
       run: 
         python run.py
