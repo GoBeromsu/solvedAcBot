@@ -31,6 +31,7 @@ solved.ac API를 사용하여 오늘 푼 문제를 가져와서 Github 이슈에
 - formatTweet(): 트위터에 게시할 텍스트를 포맷팅합니다.
 - formatProblems(): 트위터에 게시할 문제 목록을 포맷팅합니다.
 
-위 함수들을 이용하여 사용자가 푼 문제를 트위터에 게시하는 역할을 합니다.## 참조
+위 함수들을 이용하여 사용자가 푼 문제를 트위터에 게시하는 역할을 합니다.
+## 참조
 
 [twitter-lyric-bot](https://github.com/ryanking13/twitter-lyric-bot)
